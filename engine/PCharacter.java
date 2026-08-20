@@ -1,11 +1,12 @@
-public class Character{
-    private static final int NUM_STATS=6;
+package engine;
+
+public class PCharacter{
     private int[] chromosome;
     private int hp;
 
-    public Character(int hp){
-        this.chromosome=new int[NUM_STATS];
-        this.hp=hp;
+    public PCharacter(int[]chromosome){
+        this.chromosome=chromosome;
+        this.hp=this.chromosome[Stat.CON.getIndex()];
     }
 
     public void setStat(Stat stat, int value){

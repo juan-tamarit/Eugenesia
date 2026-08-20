@@ -1,3 +1,5 @@
+package engine;
+
 public enum Stat{
     STR(0),
     DEX(1),

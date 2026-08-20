@@ -1,21 +1,22 @@
+package engine;
 
 import com.sun.source.tree.Tree;
 import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Battle{
-    private Character[] t1;
-    private Character[] t2;
+    private PCharacter[] t1;
+    private PCharacter[] t2;
 
-    public Battle(Character[] t1,Character[] t2){
+    public Battle(PCharacter[] t1,PCharacter[] t2){
         this.t1=t1;
         this.t2=t2;
     }
 
     public void fight(){
-        ArrayList<Character> queue=this.order();
+        ArrayList<PCharacter> queue=this.order();
         while(!this.ended()){
-            for (Character c : queue){
+            for (PCharacter c : queue){
                 if (c.getHp()>0){
                     this.turn(c);
                 }
@@ -24,13 +25,13 @@ public class Battle{
         System.out.print("fin");
     }
 
-    public ArrayList<Character> order(){
+    public ArrayList<PCharacter> order(){
 
-        ArrayList<Character> queue=new ArrayList<Character>();
-        for (Character c: this.t1){
+        ArrayList<PCharacter> queue=new ArrayList<PCharacter>();
+        for (PCharacter c: this.t1){
             queue.add(c);
         }
-        for (Character c: this.t2){
+        for (PCharacter c: this.t2){
             queue.add(c); 
         }
 
@@ -38,8 +39,8 @@ public class Battle{
         return queue;
     }
 
-    public void turn(Character c){
-        Character target=this.identifyTarget(c);
+    public void turn(PCharacter c){
+        PCharacter target=this.identifyTarget(c);
         if (target!=null){
             int targetHp=target.getHp();
             switch (this.executeAction(c)) {
@@ -56,7 +57,7 @@ public class Battle{
         }
     }
 
-    public Character identifyTarget(Character c){
+    public PCharacter identifyTarget(PCharacter c){
         int wis=c.getStat(Stat.WIS);
         int str=c.getStat(Stat.STR);
         int in=c.getStat(Stat.IN);
@@ -64,7 +65,7 @@ public class Battle{
             if (wis>str && wis>in){
                 return this.selectFriend(c, t1);
             }else{
-                for (Character ca:this.t2){
+                for (PCharacter ca:this.t2){
                     if(ca.getHp()>0){
                         return ca;
                     }
@@ -74,7 +75,7 @@ public class Battle{
             if (wis>str && wis>in){
                return this.selectFriend(c, t2);
             }else{
-                for (Character ca:this.t1){
+                for (PCharacter ca:this.t1){
                     if(ca.getHp()>0){
                         return ca;
                     }
@@ -84,8 +85,8 @@ public class Battle{
         return null;
     }
 
-    public Character selectFriend(Character c, Character[] t){
-        Character target=t[0];
+    public PCharacter selectFriend(PCharacter c, PCharacter[] t){
+        PCharacter target=t[0];
             for (int i=1;i<t.length;i++){
                 if(t[i].getHp()<target.getHp()){
                     target=t[i];
@@ -96,9 +97,9 @@ public class Battle{
             return target;
     }
 
-    public boolean isInTeam(Character c, Character[] t){
+    public boolean isInTeam(PCharacter c, PCharacter[] t){
         boolean team=false;
-        for (Character ca: t){
+        for (PCharacter ca: t){
             if (ca==c){
                 team=true;
                 break;
@@ -110,14 +111,14 @@ public class Battle{
     public boolean ended(){
         boolean ended=true;
 
-        for(Character c : this.t1){
+        for(PCharacter c : this.t1){
             if (c.getHp()>0){
                 ended=false;
                 break;
             }
         }
         if(ended){
-            for(Character c : this.t2){
+            for(PCharacter c : this.t2){
                 if (c.getHp()>0){
                     ended=false;
                     break;
@@ -128,7 +129,7 @@ public class Battle{
         return ended;
     }
 
-    public Action executeAction(Character c){
+    public Action executeAction(PCharacter c){
         int wis=c.getStat(Stat.WIS);
         int str=c.getStat(Stat.STR);
         int in=c.getStat(Stat.IN);
@@ -143,7 +144,7 @@ public class Battle{
         }
     }
 
-    public int calculateDamage(Character c, Stat stat){
+    public int calculateDamage(PCharacter c, Stat stat){
         return c.getStat(stat);
     }
 
