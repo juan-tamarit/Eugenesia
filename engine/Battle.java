@@ -42,16 +42,20 @@ public class Battle{
     public void turn(PCharacter c){
         PCharacter target=this.identifyTarget(c);
         if (target!=null){
+            System.out.println("Objetivo seleccionado");
             int targetHp=target.getHp();
             switch (this.executeAction(c)) {
                 case ATTACK:
                     target.setHP(targetHp-this.calculateDamage(c, Stat.STR));
+                    System.out.println("Físico");
                     break;
                 case MAGIC:
                     target.setHP(targetHp-this.calculateDamage(c, Stat.IN));
+                    System.out.println("Mágia");
                     break;
                 case HEAL:
                     target.setHP(targetHp+this.calculateDamage(c, Stat.WIS));
+                    System.out.println("curación");
                     break;
             }
         }
@@ -109,24 +113,20 @@ public class Battle{
     }
 
     public boolean ended(){
-        boolean ended=true;
-
+        boolean t1=false;
+        boolean t2= false;
         for(PCharacter c : this.t1){
             if (c.getHp()>0){
-                ended=false;
+                t1=true;
                 break;
             }
         }
-        if(ended){
-            for(PCharacter c : this.t2){
-                if (c.getHp()>0){
-                    ended=false;
-                    break;
-                }
+        for(PCharacter c : this.t2){
+            if (c.getHp()>0){
+                t2=true;
             }
         }
-
-        return ended;
+        return !t1||!t2;
     }
 
     public Action executeAction(PCharacter c){
@@ -136,7 +136,7 @@ public class Battle{
         if(wis>str && wis>in){
             return Action.HEAL;
         }else{
-            if(str>in){
+            if(str>=in){
                 return Action.ATTACK;
             }else{
                 return Action.MAGIC;
