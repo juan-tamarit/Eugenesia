@@ -1,2 +1,15 @@
-.env
+# Archivos de compilación de Maven
+engine/target/
+**/target/
+
+# Archivos y carpetas de configuración de VS Code (opcional pero recomendado)
+.vscode/
+*.factorypath
+.apt_generated/
+
+# Archivos temporales de Java y compilados
 *.class
+*.jar
+*.war
+
+.env
