@@ -12,4 +12,17 @@ engine/target/
 *.jar
 *.war
 
-.env
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Caché de Python y uv
+__pycache__/
+*.py[cod]
+.uv/
+
+# Node / Frontend
+**/node_modules/
+**/dist/
+*.log
