@@ -1,2 +1,14 @@
-React → FastAPI → Java Engine → resultados
-Python → resultados
+@startuml
+
+component "Frontend\nReact + Vite" as frontend
+component "API\nFastAPI" as api
+component "Engine\nJava" as engine
+component "Simulation\nPython" as simulation
+folder "Outputs" as outputs
+
+frontend --> api : REST
+api --> engine : Ejecuta simulación
+engine --> outputs : Genera resultados
+simulation --> outputs : Analiza resultados
+
+@enduml
