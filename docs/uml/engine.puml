@@ -1,0 +1,46 @@
+@startuml
+
+class Character {
+    - chromosome : int[]
+    - hp : int
+
+    + Character(hp : int)
+    + setStat(stat : Stat, value : int) : void
+    + getStat(stat : Stat) : int
+    + setHP(hp : int) : void
+    + getHp() : int
+}
+
+enum Stat {
+    STR
+    DEX
+    CON
+    IN
+    WIS
+    CHA
+}
+
+enum Action {
+    ATTACK
+    MAGIC
+}
+
+class Battle {
+    - c1 : Character
+    - c2 : Character
+
+    + Battle(c1 : Character, c2 : Character)
+    + fight() : void
+    + turn(c : Character) : void
+    + identifyTarget(c : Character) : Character
+    + ended() : boolean
+    + executeAction(c : Character) : Action
+    + calculateDamage(c : Character, stat : Stat) : int
+}
+
+Character --> Stat : utiliza
+Battle --> Character : combate
+Battle --> Action : ejecuta
+Battle --> Stat : calcula daño
+
+@enduml
