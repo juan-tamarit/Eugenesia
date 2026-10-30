@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "simulation_id": "sim_001",
+  "repetitions": 100,
+  "summary": {
+    "teams": [
+      {
+        "team_id": "team_001",
+        "wins": 60,
+        "win_rate": 0.60
+      },
+      {
+        "team_id": "team_002",
+        "wins": 35,
+        "win_rate": 0.35
+      }
+    ],
+    "draws": 5,
+    "draw_rate": 0.05
+  },
+  "battles": [
+    {
+      "battle_id": "battle_001",
+      "winner": "team_001",
+      "turns": 12
+    },
+    {
+      "battle_id": "battle_002",
+      "winner": "team_002",
+      "turns": 18
+    },
+    {
+      "battle_id": "battle_003",
+      "winner": null,
+      "turns": 200
+    }
+  ]
+}
