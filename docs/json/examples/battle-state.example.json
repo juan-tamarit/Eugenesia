@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "battle_id": "battle_001",
+  "status": "IN_PROGRESS",
+  "winner": null,
+  "round": 2,
+  "initiative_order": [
+    "character_001",
+    "character_002",
+    "character_003",
+    "character_004"
+  ],
+  "current_character_id": "character_002",
+  "teams": [
+    {
+      "team_id": "team_001",
+      "characters": [
+        {
+          "character_id": "character_001",
+          "stats": {
+            "STR": 15,
+            "DEX": 12,
+            "CON": 14,
+            "IN": 8,
+            "WIS": 10,
+            "CHA": 11
+          },
+          "hp": 0
+        },
+        {
+          "character_id": "character_002",
+          "stats": {
+            "STR": 8,
+            "DEX": 18,
+            "CON": 10,
+            "IN": 16,
+            "WIS": 14,
+            "CHA": 12
+          },
+          "hp": 12
+        }
+      ]
+    },
+    {
+      "team_id": "team_002",
+      "characters": [
+        {
+          "character_id": "character_003",
+          "stats": {
+            "STR": 16,
+            "DEX": 14,
+            "CON": 15,
+            "IN": 7,
+            "WIS": 9,
+            "CHA": 10
+          },
+          "hp": 18
+        },
+        {
+          "character_id": "character_004",
+          "stats": {
+            "STR": 7,
+            "DEX": 10,
+            "CON": 11,
+            "IN": 17,
+            "WIS": 15,
+            "CHA": 13
+          },
+          "hp": 9
+        }
+      ]
+    }
+  ]
+}
