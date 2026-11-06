@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "world_id": "W001",
+  "characters": [
+    {
+      "character_id": "C001",
+      "generation": 0,
+      "parent_1_id": null,
+      "parent_2_id": null
+    },
+    {
+      "character_id": "C002",
+      "generation": 0,
+      "parent_1_id": null,
+      "parent_2_id": null
+    },
+    {
+      "character_id": "C003",
+      "generation": 1,
+      "parent_1_id": "C001",
+      "parent_2_id": "C002"
+    },
+    {
+      "character_id": "C004",
+      "generation": 1,
+      "parent_1_id": "C001",
+      "parent_2_id": "C002"
+    },
+    {
+      "character_id": "C005",
+      "generation": 2,
+      "parent_1_id": "C003",
+      "parent_2_id": "C004"
+    }
+  ]
+}
